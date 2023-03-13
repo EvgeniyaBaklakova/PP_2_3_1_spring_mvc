@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show Cars</title>
+</head>
+<body>
+<h1>All cars</h1>
+
+<table>
+    <tr>
+        <th>marka</th>
+        <th>color</th>
+        <th>rower</th>
+    </tr>
+    <tr th:each="cars : ${allCars}">
+        <td th:text="${cars.marka}">Марка</td>
+        <td th:text="${cars.color}">Цвет</td>
+        <td th:text="${cars.rower}">Мощность</td>
+
+    </tr>
+</table>
+
+<form th:action="@{showCars?count='count'}">
+    <label for="count">Введите количество автомобилей</label>
+    <input type="text" th:name="count" id="count"/>
+    <input type="submit" th:value="Показать">
+
+</form>
+
+</body>
+</html>
